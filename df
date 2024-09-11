@@ -1,0 +1,37 @@
+[33mcommit 12215ed130e95e14fd5aed42599b3114afeed64c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mSegundo[m[33m, [m[1;31morigin/Segundo[m[33m)[m
+Author: Miguel Nicolás Basualdo Martinez <niicomartiinez22@gmail.com>
+Date:   Wed Sep 11 02:52:57 2024 -0300
+
+    primer pantalla en proceso
+
+[33mcommit ded7a0808fa52e382dd4ba4c03fa6030fcfb4aec[m
+Author: Miguel Nicolás Basualdo Martinez <niicomartiinez22@gmail.com>
+Date:   Tue Sep 10 23:58:02 2024 -0300
+
+    agrego imagenes
+
+[33mcommit 8d71bed7e439c38ed6d3ca9ac53758bffa9400b2[m
+Author: Miguel Nicolás Basualdo Martinez <niicomartiinez22@gmail.com>
+Date:   Tue Sep 10 22:21:28 2024 -0300
+
+    cambio de nombre de archivo
+    
+    Cambio el nombre del archivo game.py por config.py debido a que me confundí.
+
+[33mcommit f49aaa73f285a5931317378a1a8a308f4f34ff4b[m
+Author: Miguel Nicolás Basualdo Martinez <niicomartiinez22@gmail.com>
+Date:   Tue Sep 10 21:39:19 2024 -0300
+
+    second commit
+
+[33mcommit 97abd9a794606387c737782f37a208c5ad650e48[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/Test[m[33m, [m[1;31morigin/Tercero[m[33m, [m[1;31morigin/Sexto[m[33m, [m[1;31morigin/Septimo[m[33m, [m[1;31morigin/Quinto[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31morigin/Cuarto[m[33m, [m[1;32mmain[m[33m, [m[1;32mCuarto[m[33m)[m
+Author: Miguel Nicolás Basualdo Martinez <82745860+MiNombreEsNico@users.noreply.github.com>
+Date:   Tue Sep 10 20:11:36 2024 -0300
+
+    Update README.md
+
+[33mcommit 62caec4b99f66865b73ae6c11f89d6bf5db031c6[m
+Author: Miguel Nicolás Basualdo Martinez <82745860+MiNombreEsNico@users.noreply.github.com>
+Date:   Tue Sep 10 20:10:55 2024 -0300
+
+    Initial commit

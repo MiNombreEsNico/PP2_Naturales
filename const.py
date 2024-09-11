@@ -3,7 +3,7 @@ import os
 import sys
 
 # Función para obtener rutas de archivos
-def resourse_path(relative_path):
+def resource_path(relative_path):
     try:
         base_path = sys._MEIPASS
     except AttributeError:
@@ -21,33 +21,34 @@ height = 600
 button = pygame.Rect((width // 2 - 224, height // 2), (436, 101))
 
 # Tipografías
-font = pygame.font.Font(resourse_path("assets/fonts/MoreSugar-Regular.ttf"), 26)
-font_button = pygame.font.Font(resourse_path("assets/fonts/OpenSans-Bold.ttf"), 43)
+font = pygame.font.Font(resource_path("assets/fonts/MoreSugar-Regular.ttf"), 26)
+font_button = pygame.font.Font(resource_path("assets/fonts/OpenSans-Bold.ttf"), 43)
 
 # Backgrounds
-img_start = resourse_path("assets/img/background/inicio.png")
-# img_game = resourse_path("assets/img/Game.png")
-# img_end = resourse_path("assets/img/End.png")
+img_start = resource_path("assets/img/background/inicio.png")
+# img_game = resource_path("assets/img/Game.png")
+# img_end = resource_path("assets/img/End.png")
 
 # Música
-background_sound = resourse_path("assets/music/background.mp3")
+background_sound = resource_path("assets/music/background.mp3")
 
 # Sonidos
-fishing_rod = resourse_path("assets/sound/fishing_rod.mp3")
-splash = resourse_path("assets/sound/splash.mp3")
+fishing_rod = resource_path("assets/sound/fishing_rod.mp3")
+splash = resource_path("assets/sound/splash.ogg")
+button_sound = resource_path("assets/sound/button.wav")
 
 # Personajes/Elementos
-apple = resourse_path("assets/img/entities/apple.png")
-banana = resourse_path("assets/img/entities/banana.png")
-bottle = resourse_path("assets/img/entities/bottle.png")
-carrot = resourse_path("assets/img/entities/carrot.png")
-clownfish = resourse_path("assets/img/entities/clownfish.png")
-crab = resourse_path("assets/img/entities/crab.png")
-fish2 = resourse_path("assets/img/fish2/fisherman.png")
-fisherman = resourse_path("assets/img/entities/fisherman.png")
-fish1 = resourse_path("assets/img/entities/fish1.png")
-hippocampus = resourse_path("assets/img/entities/hippocampus.png")
-pear = resourse_path("assets/img/entities/pear.png")
-soda_can = resourse_path("assets/img/soda_can/fisherman.png")
-strawberry = resourse_path("assets/img/strawberry/fisherman.png")
-turtle = resourse_path("assets/img/entities/turtle.png")
+apple = resource_path("assets/img/entities/apple.png")
+banana = resource_path("assets/img/entities/banana.png")
+bottle = resource_path("assets/img/entities/bottle.png")
+carrot = resource_path("assets/img/entities/carrot.png")
+clownfish = resource_path("assets/img/entities/clownfish.png")
+crab = resource_path("assets/img/entities/crab.png")
+fish2 = resource_path("assets/img/fish2/fisherman.png")
+fisherman = resource_path("assets/img/entities/fisherman.png")
+fish1 = resource_path("assets/img/entities/fish1.png")
+hippocampus = resource_path("assets/img/entities/hippocampus.png")
+pear = resource_path("assets/img/entities/pear.png")
+soda_can = resource_path("assets/img/soda_can/fisherman.png")
+strawberry = resource_path("assets/img/strawberry/fisherman.png")
+turtle = resource_path("assets/img/entities/turtle.png")
