@@ -25,8 +25,8 @@ font = pygame.font.Font(resource_path("assets/fonts/MoreSugar-Regular.ttf"), 26)
 font_button = pygame.font.Font(resource_path("assets/fonts/OpenSans-Bold.ttf"), 43)
 
 # Backgrounds
-img_start = resource_path("assets/img/background/inicio.png")
-# img_game = resource_path("assets/img/Game.png")
+img_start = resource_path("assets/img/background/home.png")
+img_game = resource_path("assets/img/background/fishing_game.png")
 # img_end = resource_path("assets/img/End.png")
 
 # Música
