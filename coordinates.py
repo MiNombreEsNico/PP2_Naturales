@@ -40,7 +40,7 @@ def play_button_sound():
 # Escena de inicio
 def start_scene():
     background = pygame.image.load(img_start)  # Cargar imagen de fondo para la escena de inicio
-        
+
     running = True
     while running:
         for event in pygame.event.get():
@@ -55,8 +55,6 @@ def start_scene():
                     print("Iniciar el juego...")
                     return "game_scene"  # Cambia a la escena del juego
 
-        # Aquí iría la lógica del juego
-        
         # Dibujar fondo y botón
         screen.blit(background, (0, 0))
         draw_button()
@@ -65,23 +63,11 @@ def start_scene():
         pygame.display.update()
 
 # Escena del juego
+# Escena del juego
+# Escena del juego
+
 def game_scene():
     background = pygame.image.load(img_game)  # Cargar imagen de fondo para la escena del juego
-    
-    #Carga de imagenes
-    apple_img = pygame.image.load(apple)
-    banana_img = pygame.image.load(banana)
-    bottle_img = pygame.image.load(bottle)
-    
-    # Cambia el tamaño de las imagenes (ancho, alto)
-    apple_img = pygame.transform.scale(apple_img, (40, 40))
-    banana_img = pygame.transform.scale(banana_img, (70, 60))
-    bottle_img = pygame.transform.scale(bottle_img, (40, 40))
-    
-    # Posición inicial de los elementos
-    apple_pos = [718, 312] 
-    banana_pos = [35, 228]
-    bottle_pos = [190, 285]
 
     running = True
     while running:
@@ -90,15 +76,17 @@ def game_scene():
                 pygame.quit()
                 sys.exit()
 
-        # Aquí iría la lógica del juego
+        # Obtener las coordenadas del mouse (opcional)
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        print(f"Mouse position: {mouse_x}, {mouse_y}")  # Imprimir las coordenadas del mouse en la consola
 
         # Dibujar fondo del juego
         screen.blit(background, (0, 0))
         
-        # Dibujar los elementos
-        screen.blit(apple_img, apple_pos)
-        screen.blit(banana_img, banana_pos)
-        screen.blit(bottle_img, bottle_pos)
+        # (Opcional) Dibujar las coordenadas en la pantalla
+        font = pygame.font.Font(None, 36)
+        coord_text = font.render(f"({mouse_x}, {mouse_y})", True, (255, 255, 255))
+        screen.blit(coord_text, (10, 10))  # Muestra las coordenadas en la esquina superior izquierda
 
         # Actualizar la pantalla
         pygame.display.update()
@@ -106,6 +94,9 @@ def game_scene():
         # Puedes usar una condición para regresar a la pantalla de inicio o a otra escena
         # if algún evento:
         #     return "start_scene"
+
+
+
 
 # Controlador principal de escenas
 def main():
