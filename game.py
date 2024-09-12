@@ -64,7 +64,23 @@ def start_scene():
 # Escena del juego
 def game_scene():
     background = pygame.image.load(img_game)  # Cargar imagen de fondo para la escena del juego
-
+    
+    #Cargar imagenes
+    apple = pygame.image.load(apple)
+    banana = pygame.image.load(banana)
+    bottle = pygame.image.load(bottle)
+    carrot = pygame.image.load(carrot)
+    clownfish = pygame.image.load(clownfish)
+    crab = pygame.image.load(crab)
+    fish2 = pygame.image.load(fish2)
+    fisherman = pygame.image.load(fisherman)
+    fish1 = pygame.image.load(fish1)
+    hippocampus = pygame.image.load(hippocampus)
+    pear = pygame.image.load(pear)
+    soda_can = pygame.image.load(soda_can)
+    strawberry = pygame.image.load(strawberry)
+    turtle = pygame.image.load(turtle)
+    
     running = True
     while running:
         for event in pygame.event.get():
