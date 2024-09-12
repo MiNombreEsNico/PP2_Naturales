@@ -72,16 +72,49 @@ def game_scene():
     apple_img = pygame.image.load(apple)
     banana_img = pygame.image.load(banana)
     bottle_img = pygame.image.load(bottle)
+    carrot_img = pygame.image.load(carrot)
+    clownfish_img = pygame.image.load(clownfish)
+    crab_img = pygame.image.load(crab)
+    fish2_img = pygame.image.load(fish2)
+    fisherman_img = pygame.image.load(fisherman)
+    fish1_img = pygame.image.load(fish1)
+    hippocampus_img = pygame.image.load(hippocampus)
+    pear_img = pygame.image.load(pear)
+    soda_can_img = pygame.image.load(soda_can)
+    strawberry_img = pygame.image.load(strawberry)
+    turtle_img = pygame.image.load(turtle)
     
     # Cambia el tamaño de las imagenes (ancho, alto)
     apple_img = pygame.transform.scale(apple_img, (40, 40))
     banana_img = pygame.transform.scale(banana_img, (70, 60))
-    bottle_img = pygame.transform.scale(bottle_img, (40, 40))
+    bottle_img = pygame.transform.scale(bottle_img, (60, 40))
+    carrot_img = pygame.transform.scale(carrot_img, (60, 50))
+    clownfish_img = pygame.transform.scale(clownfish_img, (60, 60))
+    crab_img = pygame.transform.scale(crab_img, (100, 75))
+    fish2_img = pygame.transform.scale(fish2_img, (85, 65))
+    fisherman_img = pygame.transform.scale(fisherman_img, (400, 400))
+    fish1_img = pygame.transform.scale(fish1_img, (80, 70))
+    hippocampus_img = pygame.transform.scale(hippocampus_img, (80, 60))
+    pear_img = pygame.transform.scale(pear_img, (60, 50))
+    soda_can_img = pygame.transform.scale(soda_can_img, (50, 40))
+    strawberry_img = pygame.transform.scale(strawberry_img, (50, 40))
+    turtle_img = pygame.transform.scale(turtle_img, (100, 100))
     
     # Posición inicial de los elementos
-    apple_pos = [718, 312] 
-    banana_pos = [35, 228]
-    bottle_pos = [190, 285]
+    apple_pos = [718,312] 
+    banana_pos = [30,250]
+    bottle_pos = [190,285]
+    carrot_pos = [125,322]
+    clownfish_pos = [308,400]
+    crab_pos = [500,530]
+    fish2_pos = [600,390]
+    fisherman_pos = [150,-55]
+    fish1_pos = [190,350]
+    hippocampus_pos = [500,450]
+    pear_pos = [400, 450]
+    soda_can_pos = [400,300]
+    strawberry_pos = [500,350]
+    turtle_pos = [600,250]
 
     running = True
     while running:
@@ -99,6 +132,17 @@ def game_scene():
         screen.blit(apple_img, apple_pos)
         screen.blit(banana_img, banana_pos)
         screen.blit(bottle_img, bottle_pos)
+        screen.blit(carrot_img, carrot_pos)
+        screen.blit(clownfish_img, clownfish_pos)
+        screen.blit(crab_img, crab_pos)
+        screen.blit(fish2_img, fish2_pos)
+        screen.blit(fisherman_img, fisherman_pos)
+        screen.blit(fish1_img, fish1_pos)
+        screen.blit(hippocampus_img, hippocampus_pos)
+        screen.blit(pear_img, pear_pos)
+        screen.blit(soda_can_img, soda_can_pos)
+        screen.blit(strawberry_img, strawberry_pos)
+        screen.blit(turtle_img, turtle_pos)
 
         # Actualizar la pantalla
         pygame.display.update()
