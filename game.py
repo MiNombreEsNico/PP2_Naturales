@@ -37,6 +37,25 @@ def play_button_sound():
     sound = pygame.mixer.Sound(button_sound)
     sound.play()
 
+# Clase para el personaje
+class Character:
+    def __init__(self):
+        self.image = pygame.image.load(fisherman)  # Usa la imagen del pescador
+        self.image = pygame.transform.scale(self.image, (200, 300))  # Ajusta el tamaño
+        self.rect = self.image.get_rect(center=(screen_width // 2, screen_height - 450))  # Posición inicial
+        self.speed = 1  # Velocidad de movimiento
+
+    def move(self, dx):
+        self.rect.x += dx
+        # Verifica colisión con los bordes
+        if self.rect.left < 0:  # Límite izquierdo
+            self.rect.left = 0
+        if self.rect.right > screen_width:  # Límite derecho
+            self.rect.right = screen_width
+
+    def draw(self, surface):
+        surface.blit(self.image, self.rect.topleft)  # Dibuja el personaje en su posición
+
 # Escena de inicio
 def start_scene():
     background = pygame.image.load(img_start)  # Cargar imagen de fondo para la escena de inicio
@@ -55,8 +74,6 @@ def start_scene():
                     print("Iniciar el juego...")
                     return "game_scene"  # Cambia a la escena del juego
 
-        # Aquí iría la lógica del juego
-        
         # Dibujar fondo y botón
         screen.blit(background, (0, 0))
         draw_button()
@@ -68,7 +85,7 @@ def start_scene():
 def game_scene():
     background = pygame.image.load(img_game)  # Cargar imagen de fondo para la escena del juego
     
-    #Carga de imagenes
+    # Cargar imagenes de elementos
     apple_img = pygame.image.load(apple)
     banana_img = pygame.image.load(banana)
     bottle_img = pygame.image.load(bottle)
@@ -83,7 +100,7 @@ def game_scene():
     soda_can_img = pygame.image.load(soda_can)
     strawberry_img = pygame.image.load(strawberry)
     turtle_img = pygame.image.load(turtle)
-    
+
     # Cambia el tamaño de las imagenes (ancho, alto)
     apple_img = pygame.transform.scale(apple_img, (40, 40))
     banana_img = pygame.transform.scale(banana_img, (70, 60))
@@ -92,7 +109,7 @@ def game_scene():
     clownfish_img = pygame.transform.scale(clownfish_img, (60, 60))
     crab_img = pygame.transform.scale(crab_img, (100, 75))
     fish2_img = pygame.transform.scale(fish2_img, (85, 65))
-    fisherman_img = pygame.transform.scale(fisherman_img, (400, 400))
+    fisherman_img = pygame.transform.scale(fisherman_img, (300, 800))
     fish1_img = pygame.transform.scale(fish1_img, (80, 70))
     hippocampus_img = pygame.transform.scale(hippocampus_img, (80, 60))
     pear_img = pygame.transform.scale(pear_img, (60, 50))
@@ -108,13 +125,15 @@ def game_scene():
     clownfish_pos = [308,400]
     crab_pos = [500,530]
     fish2_pos = [600,390]
-    fisherman_pos = [150,-55]
     fish1_pos = [190,350]
     hippocampus_pos = [500,450]
     pear_pos = [400, 450]
     soda_can_pos = [400,300]
     strawberry_pos = [500,350]
     turtle_pos = [600,250]
+
+    # Crear el personaje
+    character = Character()
 
     running = True
     while running:
@@ -123,11 +142,19 @@ def game_scene():
                 pygame.quit()
                 sys.exit()
 
-        # Aquí iría la lógica del juego
+        # Movimiento del personaje
+        keys = pygame.key.get_pressed()  # Obtiene el estado de todas las teclas
+        if keys[pygame.K_LEFT]:  # Tecla izquierda
+            character.move(-character.speed)  # Mover a la izquierda
+        if keys[pygame.K_RIGHT]:  # Tecla derecha
+            character.move(character.speed)  # Mover a la derecha
 
         # Dibujar fondo del juego
         screen.blit(background, (0, 0))
         
+        # Dibujar el personaje
+        character.draw(screen)
+
         # Dibujar los elementos
         screen.blit(apple_img, apple_pos)
         screen.blit(banana_img, banana_pos)
@@ -136,7 +163,6 @@ def game_scene():
         screen.blit(clownfish_img, clownfish_pos)
         screen.blit(crab_img, crab_pos)
         screen.blit(fish2_img, fish2_pos)
-        screen.blit(fisherman_img, fisherman_pos)
         screen.blit(fish1_img, fish1_pos)
         screen.blit(hippocampus_img, hippocampus_pos)
         screen.blit(pear_img, pear_pos)
@@ -146,10 +172,6 @@ def game_scene():
 
         # Actualizar la pantalla
         pygame.display.update()
-
-        # Puedes usar una condición para regresar a la pantalla de inicio o a otra escena
-        # if algún evento:
-        #     return "start_scene"
 
 # Controlador principal de escenas
 def main():
