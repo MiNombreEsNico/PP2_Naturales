@@ -1,9 +1,9 @@
 import pygame
 import sys
 from config import screen_width, screen_height
-from const import img_start, img_game, font_button, button_sound
 from const import *
 from pygame.locals import QUIT
+from character import Character
 
 # Inicializar Pygame
 pygame.init()
@@ -37,25 +37,6 @@ def play_button_sound():
     sound = pygame.mixer.Sound(button_sound)
     sound.play()
 
-# Clase para el personaje
-class Character:
-    def __init__(self):
-        self.image = pygame.image.load(fisherman)  # Usa la imagen del pescador
-        self.image = pygame.transform.scale(self.image, (200, 300))  # Ajusta el tamaño
-        self.rect = self.image.get_rect(center=(screen_width // 2, screen_height - 450))  # Posición inicial
-        self.speed = 1  # Velocidad de movimiento
-
-    def move(self, dx):
-        self.rect.x += dx
-        # Verifica colisión con los bordes
-        if self.rect.left < 0:  # Límite izquierdo
-            self.rect.left = 0
-        if self.rect.right > screen_width:  # Límite derecho
-            self.rect.right = screen_width
-
-    def draw(self, surface):
-        surface.blit(self.image, self.rect.topleft)  # Dibuja el personaje en su posición
-
 # Escena de inicio
 def start_scene():
     background = pygame.image.load(img_start)  # Cargar imagen de fondo para la escena de inicio
@@ -80,6 +61,26 @@ def start_scene():
 
         # Actualizar la pantalla
         pygame.display.update()
+
+def draw_fishing_line(screen, character):
+    if character.flip:
+        hook_x = character.rect.centerx + 55.5  # Usa rect.centerx en lugar de character.x
+    else:
+        hook_x = character.rect.centerx - 55.5  # Usa rect.centerx en lugar de character.x
+
+    hook_y = character.rect.centery  # El punto donde empieza el hilo desde el personaje
+
+    # Aquí definimos una longitud inicial de la línea y la vamos aumentando progresivamente
+    if character.fishing:
+        # Aumentar la longitud de la línea hasta el fondo
+        if character.line_length < character.max_line_length:
+            character.line_length += 2  # Ajusta este valor para hacer más lento o rápido el dibujo
+
+        # Dibujar la línea desde el gancho hasta la longitud calculada
+        pygame.draw.line(screen, (255, 255, 255), (hook_x, hook_y), (hook_x, hook_y + character.line_length), 1)
+    else:
+        # Dibujar la línea desde el gancho hasta el fondo
+        pygame.draw.line(screen, (255, 255, 255), (hook_x, hook_y), (hook_x, screen_height), 1)
 
 # Escena del juego
 def game_scene():
@@ -149,9 +150,12 @@ def game_scene():
         if keys[pygame.K_RIGHT]:  # Tecla derecha
             character.move(character.speed)  # Mover a la derecha
 
+
         # Dibujar fondo del juego
         screen.blit(background, (0, 0))
-        
+        # Dibujar el hilo de la caña
+        # draw_fishing_line(screen, character)
+
         # Dibujar el personaje
         character.draw(screen)
 
@@ -169,6 +173,9 @@ def game_scene():
         screen.blit(soda_can_img, soda_can_pos)
         screen.blit(strawberry_img, strawberry_pos)
         screen.blit(turtle_img, turtle_pos)
+        
+        if keys[pygame.K_SPACE]:
+            draw_fishing_line(screen, character)
 
         # Actualizar la pantalla
         pygame.display.update()
